@@ -57,7 +57,7 @@ export function Header({ title, subtitle, isOpen, eventHref }: HeaderProps) {
           <Link href="/" className="transition-transform active:scale-95 hover:scale-105">
             {!logoError ? (
               <img
-                src="/logopadrinos.png"
+                src="/logopadrinos.webp"
                 alt="Logo Los Padrinos – Mar y Tierra"
                 className="h-12 w-12 rounded-2xl border border-white/10 object-cover shadow-sm"
                 onError={() => setLogoError(true)}
@@ -69,7 +69,7 @@ export function Header({ title, subtitle, isOpen, eventHref }: HeaderProps) {
             )}
           </Link>
           <div className="min-w-0">
-            <h1 className="truncate text-lg font-bold tracking-tight text-[var(--text)] sm:text-2xl">{title}</h1>
+            <h1 className="display-title truncate text-xl font-bold tracking-tight text-[var(--text)] sm:text-3xl">{title}</h1>
             {subtitle ? <p className="truncate text-sm text-[var(--subtext)]">{subtitle}</p> : null}
           </div>
         </div>

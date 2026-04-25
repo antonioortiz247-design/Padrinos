@@ -34,7 +34,13 @@
 
   .section-title {
     @apply text-xl font-black tracking-tight text-[var(--text)] uppercase;
-    font-family: inherit;
+    font-family: var(--font-display), inherit;
+    letter-spacing: 0.06em;
+  }
+
+  .display-title {
+    font-family: var(--font-display), inherit;
+    letter-spacing: 0.06em;
   }
 
   .primary-btn {

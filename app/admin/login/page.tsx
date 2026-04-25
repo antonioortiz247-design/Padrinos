@@ -32,7 +32,7 @@ export default async function AdminLoginPage({ searchParams }: { searchParams: {
     <main className="mx-auto grid min-h-screen max-w-md place-items-center p-4">
       <section className="w-full rounded-2xl border border-white/10 bg-white/5 p-6 shadow-sm">
         <div className="mb-3 flex items-center gap-3">
-          <img src="/logopadrinos.png" alt="Logo Los Padrinos – Mar y Tierra" className="h-12 w-12 rounded-full border border-white/10 object-cover" />
+          <img src="/logopadrinos.webp" alt="Logo Los Padrinos – Mar y Tierra" className="h-12 w-12 rounded-full border border-white/10 object-cover" />
           <h1 className="text-xl font-bold text-[var(--accent)]">Ingreso admin</h1>
         </div>
         <p className="mt-1 text-sm text-[var(--subtext)]">Ingresa tu contraseña para abrir el dashboard del dueño.</p>

@@ -16,7 +16,7 @@ export default function HomePage() {
           <div className="relative mx-auto w-full max-w-[400px] lg:max-w-none">
             <div className="animate-float relative z-10 aspect-square overflow-hidden rounded-[3rem] border-8 border-white shadow-soft-xl">
               <Image 
-                src="/logopadrinos.png" 
+                src="/logopadrinos.webp" 
                 alt="Logo Los Padrinos – Mar y Tierra" 
                 fill 
                 className="object-cover"
@@ -33,7 +33,7 @@ export default function HomePage() {
               Tacos de mar y tierra al siguiente nivel
             </div>
             
-            <h1 className="text-5xl font-black tracking-tighter text-[var(--text)] md:text-7xl lg:text-8xl">
+            <h1 className="display-title text-6xl font-black tracking-tighter text-[var(--text)] md:text-8xl lg:text-9xl">
               Los Padrinos <br />
               <span className="bg-gradient-to-r from-[var(--accent)] to-[var(--primary)] bg-clip-text text-transparent">
                 – Mar y Tierra
