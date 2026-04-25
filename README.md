@@ -1,6 +1,6 @@
-# Tacos Ricos PWA
+# Los Padrinos – Mar y Tierra (PWA)
 
-PWA mobile-first para taquería con pedidos por WhatsApp, personalización de tacos, delivery, pagos y panel del dueño.
+PWA mobile-first para Los Padrinos – Mar y Tierra con pedidos por WhatsApp, personalización, delivery, pagos y panel del dueño.
 
 ## Stack
 

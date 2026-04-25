@@ -75,7 +75,13 @@ export function Header({ title, subtitle, isOpen, eventHref }: HeaderProps) {
         </div>
 
         <div className="flex flex-wrap items-center justify-end gap-2">
-          <span className={`pill ${openNow ? 'bg-emerald-100 text-emerald-700 dark:bg-emerald-500/15 dark:text-emerald-300' : 'bg-rose-100 text-rose-700 dark:bg-rose-500/15 dark:text-rose-300'}`}>
+          <span
+            className={`pill ${
+              openNow
+                ? 'bg-[rgb(var(--primary-rgb)/0.25)] text-[var(--text)]'
+                : 'bg-white/10 text-[var(--subtext)]'
+            }`}
+          >
             {openNow ? 'Abierto' : 'Cerrado'}
           </span>
           <button onClick={handleInstallClick} className="primary-btn px-3 py-1.5 text-xs sm:text-sm">
