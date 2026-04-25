@@ -158,7 +158,7 @@ export function ProductPriceManager({ products: initialProducts, businessId }: {
 
   return (
     <section className="rounded-2xl border border-white/10 bg-white/5 shadow-sm overflow-hidden">
-      <div className="border-b border-white/10 bg-white/5 px-6 py-5">
+      <div className="border-b border-white/10 bg-white/5 px-4 py-5 sm:px-6">
         <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between mb-5">
           <div>
             <h2 className="text-xl font-bold text-[var(--text)] flex items-center gap-2">
@@ -174,7 +174,7 @@ export function ProductPriceManager({ products: initialProducts, businessId }: {
               </span>
             </p>
           </div>
-          <div className="flex items-center gap-2">
+          <div className="flex flex-wrap items-center gap-2">
             {products.length === 0 && (
               <button 
                 onClick={handleSeed}
@@ -290,20 +290,20 @@ export function ProductPriceManager({ products: initialProducts, businessId }: {
         </div>
       </div>
 
-      <div className="max-h-[600px] overflow-y-auto">
-        <table className="w-full text-left text-sm border-separate border-spacing-0">
+      <div className="max-h-[600px] overflow-y-auto overflow-x-auto">
+        <table className="min-w-[720px] w-full text-left text-sm border-separate border-spacing-0">
           <thead className="sticky top-0 z-10 bg-[rgb(var(--bg-rgb)/0.95)] backdrop-blur-sm text-[var(--subtext)]">
             <tr>
-              <th className="border-b border-white/10 px-6 py-4 font-semibold">Producto</th>
-              <th className="border-b border-white/10 px-6 py-4 font-semibold">Imagen</th>
-              <th className="border-b border-white/10 px-6 py-4 font-semibold text-right">Precio ($)</th>
-              <th className="border-b border-white/10 px-6 py-4 font-semibold text-center">Acción</th>
+              <th className="border-b border-white/10 px-3 py-4 font-semibold sm:px-6">Producto</th>
+              <th className="border-b border-white/10 px-3 py-4 font-semibold sm:px-6">Imagen</th>
+              <th className="border-b border-white/10 px-3 py-4 font-semibold text-right sm:px-6">Precio ($)</th>
+              <th className="border-b border-white/10 px-3 py-4 font-semibold text-center sm:px-6">Acción</th>
             </tr>
           </thead>
           <tbody className="divide-y divide-white/10">
             {filteredProducts.map((product) => (
               <tr key={product.id} className="group hover:bg-white/5 transition-colors">
-                <td className="px-6 py-4">
+                <td className="px-3 py-4 sm:px-6">
                   <div className="flex flex-col">
                     <span className="font-bold text-[var(--text)] group-hover:text-[var(--accent)] transition-colors">
                       {product.name}
@@ -314,7 +314,7 @@ export function ProductPriceManager({ products: initialProducts, businessId }: {
                     </span>
                   </div>
                 </td>
-                <td className="px-6 py-4">
+                <td className="px-3 py-4 sm:px-6">
                   {product.imageUrl ? (
                     <img
                       src={product.imageUrl}
@@ -325,7 +325,7 @@ export function ProductPriceManager({ products: initialProducts, businessId }: {
                     <span className="text-xs text-[var(--subtext)]">Sin imagen</span>
                   )}
                 </td>
-                <td className="px-6 py-4 text-right">
+                <td className="px-3 py-4 text-right sm:px-6">
                   <div className="inline-flex items-center rounded-xl border-2 border-white/10 bg-white/5 focus-within:border-[var(--accent)] focus-within:ring-2 focus-within:ring-[rgb(var(--accent-rgb)/0.2)] transition-all shadow-sm">
                     <span className="pl-3 text-[var(--subtext)] font-medium">$</span>
                     <input
@@ -334,16 +334,16 @@ export function ProductPriceManager({ products: initialProducts, businessId }: {
                       min="0"
                       value={product.price}
                       onChange={(e) => handlePriceChange(product.id, e.target.value)}
-                      className="w-20 bg-transparent py-2 pr-3 text-right text-sm font-black text-[var(--text)] focus:outline-none"
+                      className="w-16 bg-transparent py-2 pr-3 text-right text-sm font-black text-[var(--text)] focus:outline-none sm:w-20"
                     />
                   </div>
                 </td>
-                <td className="px-6 py-4 text-center">
+                <td className="px-3 py-4 text-center sm:px-6">
                   <div className="flex items-center justify-center gap-2">
                     <button
                       onClick={() => handleSave(product.id, product.price)}
                       disabled={updatingId === product.id}
-                      className={`inline-flex items-center justify-center gap-2 rounded-xl min-w-[100px] px-4 py-2.5 text-xs font-black uppercase tracking-wider transition-all shadow-sm active:scale-95 ${
+                      className={`inline-flex items-center justify-center gap-2 rounded-xl min-w-[92px] px-3 py-2.5 text-xs font-black uppercase tracking-wider transition-all shadow-sm active:scale-95 sm:min-w-[100px] sm:px-4 ${
                         successId === product.id
                           ? 'bg-[rgb(var(--primary-rgb)/0.7)] text-[var(--text)] shadow-[rgb(var(--primary-rgb)/0.25)]'
                           : updatingId === product.id

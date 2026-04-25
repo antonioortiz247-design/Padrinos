@@ -48,7 +48,9 @@ export default async function DashboardPage() {
             </div>
 
             <div className="space-y-4">
-              <ProductPriceManager products={metrics.products as any} businessId={businessIdentifier} />
+              <div className="min-w-0">
+                <ProductPriceManager products={metrics.products as any} businessId={businessIdentifier} />
+              </div>
             </div>
           </section>
         </div>

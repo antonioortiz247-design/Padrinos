@@ -77,38 +77,38 @@ export function OrdersPanel({ initialOrders }: { initialOrders: any[] }) {
         </select>
       </div>
 
-      <div className="overflow-hidden rounded-xl border border-white/10">
-        <table className="w-full text-left text-sm">
+      <div className="overflow-x-auto overflow-y-hidden rounded-xl border border-white/10">
+        <table className="min-w-[720px] w-full text-left text-sm">
           <thead className="bg-white/5 text-[var(--subtext)]">
             <tr>
-              <th className="px-4 py-3 font-semibold">Pedido</th>
-              <th className="px-4 py-3 font-semibold">Cliente/Dirección</th>
-              <th className="px-4 py-3 font-semibold text-right">Total</th>
-              <th className="px-4 py-3 font-semibold text-center">Estado</th>
+              <th className="px-3 py-3 font-semibold sm:px-4">Pedido</th>
+              <th className="px-3 py-3 font-semibold sm:px-4">Cliente/Dirección</th>
+              <th className="px-3 py-3 font-semibold text-right sm:px-4">Total</th>
+              <th className="px-3 py-3 font-semibold text-center sm:px-4">Estado</th>
             </tr>
           </thead>
           <tbody className="divide-y divide-white/10">
             {filtered.length === 0 ? (
               <tr>
-                <td colSpan={4} className="px-4 py-8 text-center text-[var(--subtext)] italic">
+                <td colSpan={4} className="px-3 py-8 text-center text-[var(--subtext)] italic sm:px-4">
                   No hay pedidos que coincidan con el filtro
                 </td>
               </tr>
             ) : (
               filtered.map((order) => (
                 <tr key={order.id} className="hover:bg-white/5">
-                  <td className="px-4 py-4">
+                  <td className="px-3 py-4 sm:px-4">
                     <span className="font-mono text-xs text-[var(--subtext)]">#{order.id.slice(0, 8)}</span>
                     <p className="text-xs text-[var(--subtext)]">{new Date(order.created_at).toLocaleTimeString()}</p>
                   </td>
-                  <td className="px-4 py-4">
+                  <td className="px-3 py-4 sm:px-4">
                     <p className="font-medium text-[var(--text)]">{order.address || 'Para recoger'}</p>
                     <p className="text-xs text-[var(--subtext)] uppercase">{order.delivery_type === 'delivery' ? 'A domicilio' : 'Recoger'}</p>
                   </td>
-                  <td className="px-4 py-4 text-right font-bold text-[var(--accent)]">
+                  <td className="px-3 py-4 text-right font-bold text-[var(--accent)] sm:px-4">
                     ${order.total}
                   </td>
-                  <td className="px-4 py-4">
+                  <td className="px-3 py-4 sm:px-4">
                     <select
                       disabled={updatingId === order.id}
                       value={order.status}
