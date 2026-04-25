@@ -22,16 +22,19 @@ const baseProducts = [
   'Aguja Norteña'
 ];
 
-// Reemplaza "archivo.ext" por el nombre real de archivo (ej: pechuga.jpg o productos/pechuga.jpg).
 const PRODUCT_IMAGE_FILE_NAMES: Partial<Record<string, string>> = {
-  'El Padrino': 'TacoCampechano.jpg',
-  'Mar y Tierra': 'TacodeChuleta.jpg',
-  'Pulpo al Ajillo': 'TacodeSuadero.png',
-  Camarón: 'TacodePechuga.jpg',
-  Arrachera: 'TacodeBarriga.jpg',
-  Chistorra: 'TacodeLonganiza.jpg',
-  'Chorizo Argentino': 'TacoArgentino.jpg',
-  'Aguja Norteña': 'TacodeSuadero.png'
+  'El Padrino': 'Taco_de_camaron.webp',
+  'Mar y Tierra': 'Taco_de_arrachera.webp',
+  'Pulpo al Ajillo': 'Taco_de_Pulpo.webp',
+  Camarón: 'Taco_de_camaron.webp',
+  Arrachera: 'Taco_de_arrachera.webp',
+  Chistorra: 'Taco_de_chistorra.webp',
+  'Chorizo Argentino': 'Taco_Chorizo_Argentino.webp',
+  'Aguja Norteña': 'Taco_de_aguja.webp',
+  'Queso extra': 'Queso_extra.webp',
+  Guacamole: 'Guacamole.webp',
+  Refresco: 'Refresco.webp',
+  'Agua natural 1L': 'Agua_de_fruta.webp'
 };
 
 function getProductImageUrl(productName: string): string | undefined {
@@ -140,7 +143,8 @@ const fallbackProducts: Product[] = [
     name: 'Queso extra',
     price: 15,
     active: true,
-    customizable: false
+    customizable: false,
+    imageUrl: getProductImageUrl('Queso extra')
   },
   {
     id: 'x-2',
@@ -149,7 +153,8 @@ const fallbackProducts: Product[] = [
     name: 'Guacamole',
     price: 20,
     active: true,
-    customizable: false
+    customizable: false,
+    imageUrl: getProductImageUrl('Guacamole')
   },
   {
     id: 'x-3',
@@ -167,7 +172,8 @@ const fallbackProducts: Product[] = [
     name: 'Agua natural 1L',
     price: 45,
     active: true,
-    customizable: false
+    customizable: false,
+    imageUrl: getProductImageUrl('Agua natural 1L')
   },
   {
     id: 'b-2',
@@ -176,7 +182,8 @@ const fallbackProducts: Product[] = [
     name: 'Refresco',
     price: 30,
     active: true,
-    customizable: false
+    customizable: false,
+    imageUrl: getProductImageUrl('Refresco')
   }
 ];
 

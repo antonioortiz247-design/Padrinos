@@ -185,32 +185,130 @@ export async function seedProducts(businessIdOrSlug: string) {
       }
     }
 
-    // Fallback products from menu page
-    const baseProducts = ['Barriga', 'Suadero', 'Pechuga', 'Longaniza', 'Chile Relleno', 'Campechanos', 'Chorizo Argentino', 'Chuleta'];
     const productsToSeed = [
-      ...baseProducts.map((name) => ({
-        business_id: businessId,
-        category: 'tacos',
-        name,
-        price: 32,
-        active: true,
-        customizable: true
-      })),
       {
         business_id: businessId,
-        category: 'especialidades',
-        name: 'Burrito',
-        price: 100,
+        category: 'tacos',
+        name: 'El Padrino',
+        description: 'Arrachera + camarón, combinación perfecta de mar y tierra',
+        price: 80,
         active: true,
-        customizable: true
+        customizable: true,
+        image_url: '/Taco_de_camaron.webp'
+      },
+      {
+        business_id: businessId,
+        category: 'tacos',
+        name: 'Mar y Tierra',
+        description: 'Arrachera con camarón al grill',
+        price: 80,
+        active: true,
+        customizable: true,
+        image_url: '/Taco_de_arrachera.webp'
+      },
+      {
+        business_id: businessId,
+        category: 'tacos',
+        name: 'Pulpo al Ajillo',
+        description: 'Pulpo suave con mantequilla y ajo',
+        price: 80,
+        active: true,
+        customizable: true,
+        image_url: '/Taco_de_Pulpo.webp'
+      },
+      {
+        business_id: businessId,
+        category: 'tacos',
+        name: 'Camarón',
+        description: 'Jugoso y dorado al ajillo',
+        price: 80,
+        active: true,
+        customizable: true,
+        image_url: '/Taco_de_camaron.webp'
+      },
+      {
+        business_id: businessId,
+        category: 'tacos',
+        name: 'Arrachera',
+        description: 'Carne suave con sazón de la casa',
+        price: 50,
+        active: true,
+        customizable: true,
+        image_url: '/Taco_de_arrachera.webp'
+      },
+      {
+        business_id: businessId,
+        category: 'tacos',
+        name: 'Chistorra',
+        description: 'Intensa y ligeramente picante',
+        price: 50,
+        active: true,
+        customizable: true,
+        image_url: '/Taco_de_chistorra.webp'
+      },
+      {
+        business_id: businessId,
+        category: 'tacos',
+        name: 'Chorizo Argentino',
+        description: 'Sabor ahumado estilo artesanal',
+        price: 50,
+        active: true,
+        customizable: true,
+        image_url: '/Taco_Chorizo_Argentino.webp'
+      },
+      {
+        business_id: businessId,
+        category: 'tacos',
+        name: 'Aguja Norteña',
+        description: 'Corte jugoso con grasa perfecta',
+        price: 50,
+        active: true,
+        customizable: true,
+        image_url: '/Taco_de_aguja.webp'
       },
       {
         business_id: businessId,
         category: 'especialidades',
-        name: 'Gringas',
-        price: 70,
+        name: 'Queso extra',
+        price: 15,
         active: true,
-        customizable: true
+        customizable: false,
+        image_url: '/Queso_extra.webp'
+      },
+      {
+        business_id: businessId,
+        category: 'especialidades',
+        name: 'Guacamole',
+        price: 20,
+        active: true,
+        customizable: false,
+        image_url: '/Guacamole.webp'
+      },
+      {
+        business_id: businessId,
+        category: 'especialidades',
+        name: 'Salsa especial',
+        price: 10,
+        active: true,
+        customizable: false
+      },
+      {
+        business_id: businessId,
+        category: 'viernes',
+        name: 'Agua natural 1L',
+        price: 45,
+        active: true,
+        customizable: false,
+        image_url: '/Agua_de_fruta.webp'
+      },
+      {
+        business_id: businessId,
+        category: 'viernes',
+        name: 'Refresco',
+        price: 30,
+        active: true,
+        customizable: false,
+        image_url: '/Refresco.webp'
       }
     ];
 
