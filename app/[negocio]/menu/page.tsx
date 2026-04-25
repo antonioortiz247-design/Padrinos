@@ -11,23 +11,27 @@ import { redirect } from 'next/navigation';
 
 export const dynamic = 'force-dynamic';
 
-const baseProducts = ['Barriga', 'Suadero', 'Pechuga', 'Longaniza', 'Chile Relleno', 'Campechanos', 'Chorizo Argentino', 'Chuleta'];
+const baseProducts = [
+  'El Padrino',
+  'Mar y Tierra',
+  'Pulpo al Ajillo',
+  'Camarón',
+  'Arrachera',
+  'Chistorra',
+  'Chorizo Argentino',
+  'Aguja Norteña'
+];
 
 // Reemplaza "archivo.ext" por el nombre real de archivo (ej: pechuga.jpg o productos/pechuga.jpg).
 const PRODUCT_IMAGE_FILE_NAMES: Partial<Record<string, string>> = {
-  Barriga: 'TacodeBarriga.jpg',
-  Suadero: 'TacodeSuadero.png',
-  Pechuga: 'TacodePechuga.jpg',
-  Longaniza: 'TacodeLonganiza.jpg',
-  'Chile Relleno': 'TacodeChile.jpg',
-  Campechanos: 'TacoCampechano.jpg',
+  'El Padrino': 'TacoCampechano.jpg',
+  'Mar y Tierra': 'TacodeChuleta.jpg',
+  'Pulpo al Ajillo': 'TacodeSuadero.png',
+  Camarón: 'TacodePechuga.jpg',
+  Arrachera: 'TacodeBarriga.jpg',
+  Chistorra: 'TacodeLonganiza.jpg',
   'Chorizo Argentino': 'TacoArgentino.jpg',
-  Chuleta: 'TacodeChuleta.jpg',
-  Burrito: 'TacodePechuga.png',
-  Gringas: 'TacodeSuadero.png',
-  'Quesadillas de camarón': 'TacodePechuga.png',
-  'Papas rellenas': 'TacodeSuadero.png',
-  'Pescado rebozado': 'TacodePechuga.png'
+  'Aguja Norteña': 'TacodeSuadero.png'
 };
 
 function getProductImageUrl(productName: string): string | undefined {
@@ -41,35 +45,138 @@ function getProductImageUrl(productName: string): string | undefined {
 }
 
 const fallbackProducts: Product[] = [
-  ...baseProducts.map((name, idx) => ({
-    id: `t-${idx + 1}`,
-    businessId: 'default',
-    category: 'tacos' as const,
-    name,
-    price: 32,
-    active: true,
-    customizable: true,
-    imageUrl: getProductImageUrl(name)
-  })),
   {
-    id: 'e-1',
+    id: 't-1',
     businessId: 'default',
-    category: 'especialidades',
-    name: 'Burrito',
-    price: 100,
+    category: 'tacos',
+    name: 'El Padrino',
+    description: 'Arrachera + camarón, combinación perfecta de mar y tierra',
+    price: 80,
     active: true,
     customizable: true,
-    imageUrl: getProductImageUrl('Burrito')
+    imageUrl: getProductImageUrl('El Padrino')
   },
   {
-    id: 'e-2',
+    id: 't-2',
     businessId: 'default',
-    category: 'especialidades',
-    name: 'Gringas',
-    price: 70,
+    category: 'tacos',
+    name: 'Mar y Tierra',
+    description: 'Arrachera con camarón al grill',
+    price: 80,
     active: true,
     customizable: true,
-    imageUrl: getProductImageUrl('Gringas')
+    imageUrl: getProductImageUrl('Mar y Tierra')
+  },
+  {
+    id: 't-3',
+    businessId: 'default',
+    category: 'tacos',
+    name: 'Pulpo al Ajillo',
+    description: 'Pulpo suave con mantequilla y ajo',
+    price: 80,
+    active: true,
+    customizable: true,
+    imageUrl: getProductImageUrl('Pulpo al Ajillo')
+  },
+  {
+    id: 't-4',
+    businessId: 'default',
+    category: 'tacos',
+    name: 'Camarón',
+    description: 'Jugoso y dorado al ajillo',
+    price: 80,
+    active: true,
+    customizable: true,
+    imageUrl: getProductImageUrl('Camarón')
+  },
+  {
+    id: 't-5',
+    businessId: 'default',
+    category: 'tacos',
+    name: 'Arrachera',
+    description: 'Carne suave con sazón de la casa',
+    price: 50,
+    active: true,
+    customizable: true,
+    imageUrl: getProductImageUrl('Arrachera')
+  },
+  {
+    id: 't-6',
+    businessId: 'default',
+    category: 'tacos',
+    name: 'Chistorra',
+    description: 'Intensa y ligeramente picante',
+    price: 50,
+    active: true,
+    customizable: true,
+    imageUrl: getProductImageUrl('Chistorra')
+  },
+  {
+    id: 't-7',
+    businessId: 'default',
+    category: 'tacos',
+    name: 'Chorizo Argentino',
+    description: 'Sabor ahumado estilo artesanal',
+    price: 50,
+    active: true,
+    customizable: true,
+    imageUrl: getProductImageUrl('Chorizo Argentino')
+  },
+  {
+    id: 't-8',
+    businessId: 'default',
+    category: 'tacos',
+    name: 'Aguja Norteña',
+    description: 'Corte jugoso con grasa perfecta',
+    price: 50,
+    active: true,
+    customizable: true,
+    imageUrl: getProductImageUrl('Aguja Norteña')
+  },
+  {
+    id: 'x-1',
+    businessId: 'default',
+    category: 'especialidades',
+    name: 'Queso extra',
+    price: 15,
+    active: true,
+    customizable: false
+  },
+  {
+    id: 'x-2',
+    businessId: 'default',
+    category: 'especialidades',
+    name: 'Guacamole',
+    price: 20,
+    active: true,
+    customizable: false
+  },
+  {
+    id: 'x-3',
+    businessId: 'default',
+    category: 'especialidades',
+    name: 'Salsa especial',
+    price: 10,
+    active: true,
+    customizable: false
+  },
+  {
+    id: 'b-1',
+    businessId: 'default',
+    category: 'viernes',
+    name: 'Agua natural 1L',
+    price: 45,
+    active: true,
+    customizable: false
+  },
+  {
+    id: 'b-2',
+    businessId: 'default',
+    category: 'viernes',
+    name: 'Refresco',
+    price: 30,
+    active: true,
+    customizable: false
   }
 ];
 
@@ -81,7 +188,7 @@ export default async function BusinessMenuPage({ params }: { params: { negocio: 
   const settings = business ? await getBusinessSettings(business.id) : null;
   const waPhone = settings?.whatsapp_number || process.env.NEXT_PUBLIC_WA_PHONE || "5586495622";
 
-  const businessDisplayName = business?.name || (params.negocio === 'tacos-ricos' ? 'Tacos Rico´s' : params.negocio);
+  const businessDisplayName = business?.name || (params.negocio === 'padrinos' ? 'Los Padrinos – Mar y Tierra' : params.negocio);
   const businessId = business?.id || params.negocio;
 
   // Obtener productos desde la DB
@@ -92,13 +199,13 @@ export default async function BusinessMenuPage({ params }: { params: { negocio: 
 
   return (
     <main className="mx-auto min-h-screen max-w-6xl pb-24">
-      <Header title={businessDisplayName} subtitle="Pide en segundos" eventHref={`/${params.negocio}/eventos`} />
+      <Header title={businessDisplayName} subtitle="Tacos de mar y tierra al siguiente nivel" eventHref={`/${params.negocio}/eventos`} />
 
       <section className="grid gap-4 p-4 md:grid-cols-[minmax(0,2fr)_minmax(300px,1fr)] md:gap-5 md:p-6">
         <div className="space-y-3">
           <div className="surface-card p-4">
-            <h2 className="text-xl font-bold tracking-tight text-slate-900 dark:text-slate-100">Menú del día</h2>
-            <p className="mt-1 text-sm text-slate-500 dark:text-slate-400">Selecciona tus favoritos, personaliza y confirma tu pedido en WhatsApp.</p>
+            <h2 className="text-xl font-bold tracking-tight text-[var(--text)]">Menú del día</h2>
+            <p className="mt-1 text-sm text-[var(--subtext)]">Selecciona tus favoritos, personaliza y confirma tu pedido en WhatsApp.</p>
           </div>
           <MenuList products={products} />
         </div>

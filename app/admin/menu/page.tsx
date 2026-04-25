@@ -1,9 +1,19 @@
 import { Header } from '@/components/Header';
 
 const rows = [
-  { name: 'Burrito', price: 100, active: true },
-  { name: 'Gringas', price: 70, active: true },
-  { name: 'Pescado rebozado', price: 40, active: true }
+  { name: 'El Padrino', price: 80, active: true },
+  { name: 'Mar y Tierra', price: 80, active: true },
+  { name: 'Pulpo al Ajillo', price: 80, active: true },
+  { name: 'Camarón', price: 80, active: true },
+  { name: 'Arrachera', price: 50, active: true },
+  { name: 'Chistorra', price: 50, active: true },
+  { name: 'Chorizo Argentino', price: 50, active: true },
+  { name: 'Aguja Norteña', price: 50, active: true },
+  { name: 'Queso extra', price: 15, active: true },
+  { name: 'Guacamole', price: 20, active: true },
+  { name: 'Salsa especial', price: 10, active: true },
+  { name: 'Agua natural 1L', price: 45, active: true },
+  { name: 'Refresco', price: 30, active: true }
 ];
 
 export default function MenuAdminPage() {

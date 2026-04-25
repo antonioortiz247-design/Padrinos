@@ -32,8 +32,8 @@ export default async function AdminLoginPage({ searchParams }: { searchParams: {
     <main className="mx-auto grid min-h-screen max-w-md place-items-center p-4">
       <section className="w-full rounded-2xl border bg-white p-6 shadow-sm dark:bg-zinc-900">
         <div className="mb-3 flex items-center gap-3">
-          <img src="/logotacosricos.png" alt="Logo Tacos Ricos" className="h-12 w-12 rounded-full border border-warm-200 object-cover" />
-          <h1 className="text-xl font-bold text-warm-700">Ingreso admin</h1>
+          <img src="/logotacosricos.png" alt="Logo Los Padrinos – Mar y Tierra" className="h-12 w-12 rounded-full border border-white/10 object-cover" />
+          <h1 className="text-xl font-bold text-[var(--accent)]">Ingreso admin</h1>
         </div>
         <p className="mt-1 text-sm text-zinc-500">Ingresa tu contraseña para abrir el dashboard del dueño.</p>
 
@@ -48,7 +48,7 @@ export default async function AdminLoginPage({ searchParams }: { searchParams: {
             />
           </div>
           {hasError ? <p className="text-sm text-red-600">Contraseña inválida.</p> : null}
-          <button type="submit" className="w-full rounded-lg bg-warm-500 px-3 py-2 text-sm font-semibold text-white">
+          <button type="submit" className="w-full rounded-lg bg-[var(--accent)] px-3 py-2 text-sm font-semibold text-[var(--bg)]">
             Entrar
           </button>
         </form>

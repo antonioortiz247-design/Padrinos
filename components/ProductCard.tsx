@@ -4,6 +4,12 @@ import { Product } from '@/lib/types';
 import Image from 'next/image';
 import { Plus, Settings2 } from 'lucide-react';
 
+const PRODUCT_BADGES: Record<string, string> = {
+  'El Padrino': 'Especialidad',
+  'Mar y Tierra': 'Mas vendido',
+  'Pulpo al Ajillo': 'Nuevo'
+};
+
 export function ProductCard({
   product,
   onCustomize,
@@ -25,31 +31,33 @@ export function ProductCard({
             sizes="(max-width: 768px) 100vw, 150px"
           />
         ) : (
-          <div className="grid h-full place-items-center bg-zinc-100 text-[10px] font-black uppercase tracking-widest text-zinc-400 dark:bg-zinc-800">
+          <div className="grid h-full place-items-center bg-white/5 text-[10px] font-black uppercase tracking-widest text-[var(--subtext)]">
             Sin Imagen
           </div>
         )}
-        {product.category === 'especialidades' && (
+        {PRODUCT_BADGES[product.name] ? (
           <div className="absolute left-4 top-4">
-            <span className="pill bg-white/90 text-orange-600 shadow-sm backdrop-blur-sm">Top</span>
+            <span className="pill bg-[rgb(var(--bg-rgb)/0.85)] text-[var(--accent)] shadow-sm backdrop-blur-sm">
+              {PRODUCT_BADGES[product.name]}
+            </span>
           </div>
-        )}
+        ) : null}
       </div>
 
       <div className="flex flex-1 flex-col p-5 sm:p-0">
         <div className="flex items-start justify-between gap-4">
           <div className="min-w-0 flex-1">
-            <h3 className="truncate text-xl font-black tracking-tight text-zinc-900 dark:text-zinc-100">
+            <h3 className="truncate text-xl font-black tracking-tight text-[var(--text)]">
               {product.name}
             </h3>
             {product.description && (
-              <p className="mt-1 line-clamp-2 text-sm font-medium leading-relaxed text-zinc-500 dark:text-zinc-400">
+              <p className="mt-1 line-clamp-2 text-sm font-medium leading-relaxed text-[var(--subtext)]">
                 {product.description}
               </p>
             )}
           </div>
           <div className="text-right">
-            <p className="text-2xl font-black tracking-tighter text-orange-600 dark:text-orange-400">
+            <p className="text-2xl font-black tracking-tighter text-[var(--accent)]">
               ${product.price}
             </p>
           </div>

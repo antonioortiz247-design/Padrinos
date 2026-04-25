@@ -6,13 +6,13 @@ import { FloatingCart } from '@/components/FloatingCart';
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  title: 'Tacos Rico´s - Pide rápido y sabroso',
-  description: 'La mejor taquería con pedidos en línea, personalización y delivery directo a tu puerta.',
+  title: 'Los Padrinos – Mar y Tierra - Tacos de mar y tierra al siguiente nivel',
+  description: 'Los Padrinos – Mar y Tierra. Tacos de mar y tierra al siguiente nivel. Pedidos en línea, personalización y delivery directo a tu puerta.',
   manifest: '/manifest.json',
   appleWebApp: {
     capable: true,
     statusBarStyle: 'default',
-    title: 'Tacos Rico´s',
+    title: 'Los Padrinos – Mar y Tierra',
   },
   formatDetection: {
     telephone: false,
@@ -24,7 +24,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: '#ffffff',
+  themeColor: '#0f0f0f',
   width: 'device-width',
   initialScale: 1,
   maximumScale: 1,
@@ -34,7 +34,7 @@ export const viewport: Viewport = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="es" className="h-full">
-      <body className={`${inter.className} h-full bg-zinc-50 text-zinc-900 antialiased`}>
+      <body className={`${inter.className} h-full bg-[var(--bg)] text-[var(--text)] antialiased`}>
         {children}
         <FloatingCart />
       </body>

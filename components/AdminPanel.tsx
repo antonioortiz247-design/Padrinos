@@ -20,9 +20,9 @@ export function AdminPanel({ metrics }: { metrics: Metrics }) {
 
 function Card({ label, value }: { label: string; value: string }) {
   return (
-    <article className="rounded-xl border border-warm-100 bg-white p-4 dark:border-zinc-800 dark:bg-zinc-900">
-      <p className="text-xs text-zinc-500">{label}</p>
-      <p className="mt-2 text-lg font-bold">{value}</p>
+    <article className="rounded-xl border border-white/10 bg-white/5 p-4">
+      <p className="text-xs text-[var(--subtext)]">{label}</p>
+      <p className="mt-2 text-lg font-bold text-[var(--text)]">{value}</p>
     </article>
   );
 }

@@ -15,11 +15,11 @@ export default function Error({
   }, [error]);
 
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 p-6">
+    <div className="flex min-h-screen items-center justify-center bg-[var(--bg)] p-6">
       <div className="surface-card w-full max-w-md p-8 text-center shadow-lg">
-        <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-red-100">
+        <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-[rgb(var(--accent-rgb)/0.18)]">
           <svg
-            className="h-8 w-8 text-red-600"
+            className="h-8 w-8 text-[var(--accent)]"
             fill="none"
             viewBox="0 0 24 24"
             stroke="currentColor"
@@ -32,8 +32,8 @@ export default function Error({
             />
           </svg>
         </div>
-        <h2 className="mt-6 text-xl font-bold text-zinc-900">Algo salió mal</h2>
-        <p className="mt-2 text-sm text-zinc-600">
+        <h2 className="mt-6 text-xl font-bold text-[var(--text)]">Algo salió mal</h2>
+        <p className="mt-2 text-sm text-[var(--subtext)]">
           Hubo un problema al cargar esta página. Ya estamos revisando qué pasó.
         </p>
         <button

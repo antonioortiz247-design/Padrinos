@@ -47,26 +47,26 @@ export function RealtimeOrders({ initialOrders, businessId }: { initialOrders: O
   }, [businessId]);
 
   return (
-    <section className="rounded-xl border bg-white p-4 text-sm dark:bg-zinc-900 shadow-sm">
+    <section className="rounded-xl border border-white/10 bg-white/5 p-4 text-sm shadow-sm">
       <div className="flex items-center justify-between">
-        <h2 className="font-semibold text-zinc-900 dark:text-zinc-100">Pedidos Recientes (En vivo)</h2>
+        <h2 className="font-semibold text-[var(--text)]">Pedidos Recientes (En vivo)</h2>
         <span className="flex h-2 w-2 rounded-full bg-green-500 animate-pulse"></span>
       </div>
       <ul className="mt-3 space-y-2">
         {orders.length === 0 ? (
-          <p className="text-zinc-500 text-center py-4">No hay pedidos recientes</p>
+          <p className="text-[var(--subtext)] text-center py-4">No hay pedidos recientes</p>
         ) : (
           orders.map((row) => (
-            <li key={row.id} className="flex items-center justify-between rounded-lg border border-zinc-100 p-3 dark:border-zinc-800 bg-zinc-50/50 dark:bg-zinc-900/50">
+            <li key={row.id} className="flex items-center justify-between rounded-lg border border-white/10 p-3 bg-white/5">
               <div className="flex flex-col">
-                <span className="font-mono text-xs text-zinc-500">#{row.id.slice(0, 8)}</span>
-                <span className="font-bold text-zinc-900 dark:text-zinc-100">${row.total}</span>
+                <span className="font-mono text-xs text-[var(--subtext)]">#{row.id.slice(0, 8)}</span>
+                <span className="font-bold text-[var(--text)]">${row.total}</span>
               </div>
               <div className="flex items-center gap-2">
                 <span className={`pill ${
-                  row.status === 'pending' ? 'bg-amber-100 text-amber-700' : 
-                  row.status === 'delivered' ? 'bg-green-100 text-green-700' : 
-                  'bg-blue-100 text-blue-700'
+                  row.status === 'pending' ? 'bg-[rgb(var(--accent-rgb)/0.18)] text-[var(--accent)]' : 
+                  row.status === 'delivered' ? 'bg-white/10 text-[var(--text)]' : 
+                  'bg-[rgb(var(--primary-rgb)/0.25)] text-[var(--text)]'
                 }`}>
                   {row.status}
                 </span>

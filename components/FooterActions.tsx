@@ -4,7 +4,7 @@ import Link from 'next/link';
 
 export function FooterActions({ dashboardHref = '/admin/login' }: { dashboardHref?: string }) {
   return (
-    <footer className="mt-6 border-t border-amber-200/80 bg-white/85 p-4 backdrop-blur dark:border-zinc-800 dark:bg-zinc-950/85">
+    <footer className="mt-6 border-t border-white/10 bg-[rgb(var(--bg-rgb)/0.85)] p-4 backdrop-blur">
       <div className="mx-auto w-full max-w-6xl">
         <Link href={dashboardHref} className="secondary-btn w-full">
           Dashboard

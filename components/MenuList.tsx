@@ -8,8 +8,8 @@ import { useCartStore } from '@/store/cart-store';
 
 const sectionTitles: Record<Product['category'], string> = {
   tacos: '🌮 Tacos',
-  especialidades: '🌯 Especialidades',
-  viernes: '🍤 Viernes',
+  especialidades: '➕ Extras',
+  viernes: '🥤 Bebidas',
   miercoles: '🥔 Miércoles',
   jueves: '🐟 Jueves'
 };
@@ -31,7 +31,7 @@ export function MenuList({ products }: { products: Product[] }) {
           <section key={group.key} className="space-y-3">
             <div className="flex items-center gap-2">
               <h2 className="section-title text-lg sm:text-xl">{group.label}</h2>
-              <span className="pill bg-amber-100 text-orange-700 dark:bg-orange-500/15 dark:text-orange-200">{group.items.length}</span>
+              <span className="pill bg-[rgb(var(--accent-rgb)/0.18)] text-[var(--accent)]">{group.items.length}</span>
             </div>
             <div className="grid gap-3 sm:grid-cols-2 xl:grid-cols-1">
               {group.items.map((product) => (

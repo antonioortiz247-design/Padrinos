@@ -13,7 +13,7 @@ export default async function DashboardPage() {
   const businessIdentifier =
     process.env.NEXT_PUBLIC_DEFAULT_BUSINESS_ID ||
     process.env.NEXT_PUBLIC_DEFAULT_BUSINESS_SLUG ||
-    'tacos-ricos';
+    'padrinos';
 
   try {
     // Obtener métricas y productos reales del negocio
@@ -24,11 +24,11 @@ export default async function DashboardPage() {
         <Header title={`Admin · ${metrics.businessName}`} subtitle="Ventas y rendimiento del día" />
         <div className="mx-auto w-full max-w-6xl space-y-4 px-3 pb-8 pt-4 sm:px-4 sm:pb-10 sm:pt-5 md:space-y-5">
           {metrics.products.length === 0 && (
-            <section className="surface-card border-amber-200/70 bg-amber-50/80 p-4 sm:p-5 dark:border-amber-900/50 dark:bg-amber-900/20">
-              <h3 className="text-base font-extrabold tracking-tight text-amber-800 sm:text-lg dark:text-amber-200">
+            <section className="surface-card border-white/10 bg-white/5 p-4 sm:p-5">
+              <h3 className="text-base font-extrabold tracking-tight text-[var(--accent)] sm:text-lg">
                 No hay productos en la base de datos
               </h3>
-              <p className="mt-1 text-sm text-amber-700 dark:text-amber-300">
+              <p className="mt-1 text-sm text-[var(--subtext)]">
                 Actualmente se muestra el menú de demostración a tus clientes porque la base de datos está vacía para este negocio.
               </p>
             </section>
@@ -60,14 +60,14 @@ export default async function DashboardPage() {
       <main className="min-h-screen">
         <Header title="Admin · Dashboard" subtitle="Ventas y rendimiento del día" />
         <div className="mx-auto w-full max-w-3xl px-3 pb-8 pt-6 sm:px-4">
-          <section className="surface-card border-red-200/80 bg-red-50/90 p-5 text-center sm:p-7 dark:border-red-900/60 dark:bg-red-900/20">
-            <h2 className="text-lg font-extrabold tracking-tight text-red-700 sm:text-xl dark:text-red-200">
+          <section className="surface-card border-white/10 bg-white/5 p-5 text-center sm:p-7">
+            <h2 className="text-lg font-extrabold tracking-tight text-[var(--accent)] sm:text-xl">
               Error al cargar el dashboard
             </h2>
-            <p className="mt-2 text-sm text-red-600 dark:text-red-300">
+            <p className="mt-2 text-sm text-[var(--subtext)]">
               Asegúrate de que las variables de entorno de Supabase estén configuradas correctamente en Vercel.
             </p>
-            <pre className="mt-4 overflow-auto rounded-2xl border border-red-200/70 bg-white/80 p-3 text-left text-xs text-red-700 sm:p-4 dark:border-red-900/50 dark:bg-zinc-900 dark:text-red-300">
+            <pre className="mt-4 overflow-auto rounded-2xl border border-white/10 bg-white/5 p-3 text-left text-xs text-[var(--subtext)] sm:p-4">
               {error instanceof Error ? error.message : 'Error desconocido'}
             </pre>
           </section>

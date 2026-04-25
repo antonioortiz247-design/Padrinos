@@ -9,7 +9,7 @@ export async function POST(request: Request) {
   const preferencePayload = {
     items: [
       {
-        title: `Pedido ${body.businessName ?? 'Taquería'}`,
+        title: `Pedido ${body.businessName ?? 'Los Padrinos – Mar y Tierra'}`,
         quantity: 1,
         unit_price: Number(body.total ?? 0),
         currency_id: 'MXN'

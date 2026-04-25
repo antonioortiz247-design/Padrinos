@@ -3,48 +3,58 @@
 @tailwind utilities;
 
 :root {
-  --brand-primary: #ea580c;
-  --brand-secondary: #f97316;
-  --bg-main: #fffcf9;
+  --bg: #0f0f0f;
+  --primary: #1f3d2b;
+  --accent: #c9a14a;
+  --text: #ffffff;
+  --subtext: #bfbfbf;
+  --bg-rgb: 15 15 15;
+  --primary-rgb: 31 61 43;
+  --accent-rgb: 201 161 74;
+  --text-rgb: 255 255 255;
+  --subtext-rgb: 191 191 191;
+  --brand-primary: var(--accent);
+  --brand-secondary: var(--primary);
+  --bg-main: var(--bg);
 }
 
 @layer base {
   body {
-    @apply min-h-screen bg-[#fffcf9] text-zinc-900 antialiased;
+    @apply min-h-screen bg-[var(--bg)] text-[var(--text)] antialiased;
     background-image: 
-      radial-gradient(at 0% 0%, rgba(251, 146, 60, 0.1) 0px, transparent 50%),
-      radial-gradient(at 100% 0%, rgba(254, 215, 170, 0.1) 0px, transparent 50%);
+      radial-gradient(at 0% 0%, rgba(31, 61, 43, 0.35) 0px, transparent 55%),
+      radial-gradient(at 100% 0%, rgba(201, 161, 74, 0.25) 0px, transparent 55%);
   }
 }
 
 @layer components {
   .surface-card {
-    @apply rounded-[2rem] border border-orange-100/50 bg-white/80 p-6 shadow-soft backdrop-blur-md transition-all duration-300 hover:shadow-soft-xl dark:border-zinc-800 dark:bg-zinc-900/80;
+    @apply rounded-[2rem] border border-white/10 bg-white/5 p-6 shadow-soft backdrop-blur-md transition-all duration-300 hover:shadow-soft-xl;
   }
 
   .section-title {
-    @apply text-xl font-black tracking-tight text-zinc-900 dark:text-zinc-100 uppercase;
+    @apply text-xl font-black tracking-tight text-[var(--text)] uppercase;
     font-family: var(--font-inter);
   }
 
   .primary-btn {
-    @apply inline-flex items-center justify-center gap-2 rounded-2xl bg-gradient-to-br from-orange-500 to-red-600 px-6 py-3.5 text-sm font-bold text-white shadow-lg shadow-orange-500/20 transition-all duration-300 hover:scale-[1.02] hover:shadow-orange-500/40 active:scale-[0.98] focus:ring-2 focus:ring-orange-500/50;
+    @apply inline-flex items-center justify-center gap-2 rounded-2xl bg-[var(--accent)] px-6 py-3.5 text-sm font-bold text-[var(--bg)] shadow-lg shadow-[rgb(var(--accent-rgb)/0.25)] transition-all duration-300 hover:scale-[1.02] hover:shadow-[rgb(var(--accent-rgb)/0.4)] active:scale-[0.98] focus:ring-2 focus:ring-[rgb(var(--accent-rgb)/0.45)];
   }
 
   .secondary-btn {
-    @apply inline-flex items-center justify-center gap-2 rounded-2xl border-2 border-orange-100 bg-white px-6 py-3.5 text-sm font-bold text-orange-700 transition-all duration-300 hover:border-orange-200 hover:bg-orange-50 active:scale-[0.98] dark:border-zinc-700 dark:bg-zinc-900 dark:text-orange-400;
+    @apply inline-flex items-center justify-center gap-2 rounded-2xl border-2 border-white/15 bg-transparent px-6 py-3.5 text-sm font-bold text-[var(--text)] transition-all duration-300 hover:border-white/25 hover:bg-white/5 active:scale-[0.98];
   }
 
   .input-field {
-    @apply w-full rounded-2xl border-2 border-zinc-100 bg-white px-4 py-3 text-sm text-zinc-900 transition-all duration-200 focus:border-orange-400 focus:outline-none focus:ring-4 focus:ring-orange-500/10 dark:border-zinc-800 dark:bg-zinc-950 dark:text-zinc-100;
+    @apply w-full rounded-2xl border-2 border-white/10 bg-white/5 px-4 py-3 text-sm text-[var(--text)] transition-all duration-200 focus:border-[var(--accent)] focus:outline-none focus:ring-4 focus:ring-[rgb(var(--accent-rgb)/0.15)];
   }
 
   .pill {
-    @apply inline-flex items-center rounded-full bg-orange-100 px-3 py-1 text-[10px] font-black uppercase tracking-wider text-orange-700 dark:bg-orange-500/10 dark:text-orange-400;
+    @apply inline-flex items-center rounded-full bg-[rgb(var(--accent-rgb)/0.15)] px-3 py-1 text-[10px] font-black uppercase tracking-wider text-[var(--accent)];
   }
 
   .glass-effect {
-    @apply bg-white/70 backdrop-blur-lg border border-white/20 shadow-xl;
+    @apply bg-[rgb(var(--bg-rgb)/0.7)] backdrop-blur-lg border border-white/10 shadow-xl;
   }
 }
 

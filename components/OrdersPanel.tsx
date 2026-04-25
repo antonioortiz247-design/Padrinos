@@ -59,14 +59,14 @@ export function OrdersPanel({ initialOrders }: { initialOrders: any[] }) {
   };
 
   return (
-    <section className="space-y-4 rounded-2xl border border-warm-100 bg-white p-6 shadow-sm dark:border-zinc-800 dark:bg-zinc-900">
+    <section className="space-y-4 rounded-2xl border border-white/10 bg-white/5 p-6 shadow-sm">
       <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
         <div>
-          <h2 className="text-xl font-bold text-zinc-800 dark:text-zinc-100">Gestión de Pedidos</h2>
-          <p className="text-sm text-zinc-500">Administra los pedidos entrantes y sus estados</p>
+          <h2 className="text-xl font-bold text-[var(--text)]">Gestión de Pedidos</h2>
+          <p className="text-sm text-[var(--subtext)]">Administra los pedidos entrantes y sus estados</p>
         </div>
         <select 
-          className="rounded-lg border border-warm-200 bg-warm-50 p-2 text-sm focus:border-warm-500 focus:ring-warm-500 dark:border-zinc-700 dark:bg-zinc-800 dark:text-zinc-200" 
+          className="rounded-lg border border-white/10 bg-white/5 p-2 text-sm text-[var(--text)] focus:border-[var(--accent)] focus:ring-[var(--accent)]" 
           value={filter} 
           onChange={(e) => setFilter(e.target.value as 'all' | OrderStatus)}
         >
@@ -77,9 +77,9 @@ export function OrdersPanel({ initialOrders }: { initialOrders: any[] }) {
         </select>
       </div>
 
-      <div className="overflow-hidden rounded-xl border border-warm-100 dark:border-zinc-800">
+      <div className="overflow-hidden rounded-xl border border-white/10">
         <table className="w-full text-left text-sm">
-          <thead className="bg-warm-50 text-zinc-600 dark:bg-zinc-800/50 dark:text-zinc-400">
+          <thead className="bg-white/5 text-[var(--subtext)]">
             <tr>
               <th className="px-4 py-3 font-semibold">Pedido</th>
               <th className="px-4 py-3 font-semibold">Cliente/Dirección</th>
@@ -87,25 +87,25 @@ export function OrdersPanel({ initialOrders }: { initialOrders: any[] }) {
               <th className="px-4 py-3 font-semibold text-center">Estado</th>
             </tr>
           </thead>
-          <tbody className="divide-y divide-warm-50 dark:divide-zinc-800">
+          <tbody className="divide-y divide-white/10">
             {filtered.length === 0 ? (
               <tr>
-                <td colSpan={4} className="px-4 py-8 text-center text-zinc-500 italic">
+                <td colSpan={4} className="px-4 py-8 text-center text-[var(--subtext)] italic">
                   No hay pedidos que coincidan con el filtro
                 </td>
               </tr>
             ) : (
               filtered.map((order) => (
-                <tr key={order.id} className="hover:bg-warm-50/50 dark:hover:bg-zinc-800/30">
+                <tr key={order.id} className="hover:bg-white/5">
                   <td className="px-4 py-4">
-                    <span className="font-mono text-xs text-zinc-400">#{order.id.slice(0, 8)}</span>
-                    <p className="text-xs text-zinc-500">{new Date(order.created_at).toLocaleTimeString()}</p>
+                    <span className="font-mono text-xs text-[var(--subtext)]">#{order.id.slice(0, 8)}</span>
+                    <p className="text-xs text-[var(--subtext)]">{new Date(order.created_at).toLocaleTimeString()}</p>
                   </td>
                   <td className="px-4 py-4">
-                    <p className="font-medium">{order.address || 'Para recoger'}</p>
-                    <p className="text-xs text-zinc-500 uppercase">{order.delivery_type === 'delivery' ? 'A domicilio' : 'Recoger'}</p>
+                    <p className="font-medium text-[var(--text)]">{order.address || 'Para recoger'}</p>
+                    <p className="text-xs text-[var(--subtext)] uppercase">{order.delivery_type === 'delivery' ? 'A domicilio' : 'Recoger'}</p>
                   </td>
-                  <td className="px-4 py-4 text-right font-bold text-warm-700 dark:text-warm-400">
+                  <td className="px-4 py-4 text-right font-bold text-[var(--accent)]">
                     ${order.total}
                   </td>
                   <td className="px-4 py-4">
@@ -116,9 +116,9 @@ export function OrdersPanel({ initialOrders }: { initialOrders: any[] }) {
                       className={`w-full rounded-lg border p-2 text-xs font-medium transition-colors ${
                         updatingId === order.id ? 'opacity-50' : ''
                       } ${
-                        order.status === 'pending' ? 'border-amber-200 bg-amber-50 text-amber-700' :
-                        order.status === 'delivered' ? 'border-emerald-200 bg-emerald-50 text-emerald-700' :
-                        'border-blue-200 bg-blue-50 text-blue-700'
+                        order.status === 'pending' ? 'border-[var(--accent)] bg-[rgb(var(--accent-rgb)/0.18)] text-[var(--accent)]' :
+                        order.status === 'delivered' ? 'border-white/10 bg-white/5 text-[var(--text)]' :
+                        'border-[rgb(var(--primary-rgb)/0.35)] bg-[rgb(var(--primary-rgb)/0.18)] text-[var(--text)]'
                       }`}
                     >
                       {statuses.map((status) => (
