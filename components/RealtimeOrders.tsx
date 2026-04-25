@@ -50,7 +50,7 @@ export function RealtimeOrders({ initialOrders, businessId }: { initialOrders: O
     <section className="rounded-xl border border-white/10 bg-white/5 p-4 text-sm shadow-sm">
       <div className="flex items-center justify-between">
         <h2 className="font-semibold text-[var(--text)]">Pedidos Recientes (En vivo)</h2>
-        <span className="flex h-2 w-2 rounded-full bg-green-500 animate-pulse"></span>
+        <span className="flex h-2 w-2 rounded-full bg-[var(--accent)] animate-pulse"></span>
       </div>
       <ul className="mt-3 space-y-2">
         {orders.length === 0 ? (

@@ -4,12 +4,12 @@
 
 :root {
   --bg: #0f0f0f;
-  --primary: #1f3d2b;
+  --primary: #1b2433;
   --accent: #c9a14a;
   --text: #ffffff;
   --subtext: #bfbfbf;
   --bg-rgb: 15 15 15;
-  --primary-rgb: 31 61 43;
+  --primary-rgb: 27 36 51;
   --accent-rgb: 201 161 74;
   --text-rgb: 255 255 255;
   --subtext-rgb: 191 191 191;
@@ -22,8 +22,8 @@
   body {
     @apply min-h-screen bg-[var(--bg)] text-[var(--text)] antialiased;
     background-image: 
-      radial-gradient(at 0% 0%, rgba(31, 61, 43, 0.35) 0px, transparent 55%),
-      radial-gradient(at 100% 0%, rgba(201, 161, 74, 0.25) 0px, transparent 55%);
+      radial-gradient(at 0% 0%, rgb(var(--primary-rgb) / 0.35) 0px, transparent 55%),
+      radial-gradient(at 100% 0%, rgb(var(--accent-rgb) / 0.25) 0px, transparent 55%);
   }
 }
 
