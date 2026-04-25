@@ -13,6 +13,20 @@ export default function HomePage() {
 
       <section className="z-10 w-full max-w-4xl">
         <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
+          <div className="relative mx-auto w-full max-w-[400px] lg:max-w-none">
+            <div className="animate-float relative z-10 aspect-square overflow-hidden rounded-[3rem] border-8 border-white shadow-soft-xl">
+              <Image 
+                src="/logopadrinos.png" 
+                alt="Logo Los Padrinos – Mar y Tierra" 
+                fill 
+                className="object-cover"
+                priority
+              />
+            </div>
+            <div className="absolute -bottom-6 -right-6 -z-10 h-full w-full rounded-[3rem] border-2 border-white/10" />
+            <div className="absolute -top-6 -left-6 -z-10 h-full w-full rounded-[3rem] bg-[rgb(var(--primary-rgb)/0.12)]" />
+          </div>
+
           <div className="text-center lg:text-left">
             <div className="mb-6 inline-flex items-center gap-2 rounded-full bg-[rgb(var(--accent-rgb)/0.15)] px-4 py-1.5 text-xs font-black uppercase tracking-widest text-[var(--accent)]">
               <Star size={14} className="fill-[var(--accent)]" />
@@ -56,21 +70,6 @@ export default function HomePage() {
                 </span>
               </div>
             </div>
-          </div>
-
-          <div className="relative mx-auto w-full max-w-[400px] lg:max-w-none">
-            <div className="animate-float relative z-10 aspect-square overflow-hidden rounded-[3rem] border-8 border-white shadow-soft-xl">
-              <Image 
-                src="/logopadrinos.png" 
-                alt="Logo Los Padrinos – Mar y Tierra" 
-                fill 
-                className="object-cover"
-                priority
-              />
-            </div>
-            {/* Decorative element */}
-            <div className="absolute -bottom-6 -right-6 -z-10 h-full w-full rounded-[3rem] border-2 border-white/10" />
-            <div className="absolute -top-6 -left-6 -z-10 h-full w-full rounded-[3rem] bg-[rgb(var(--primary-rgb)/0.12)]" />
           </div>
         </div>
       </section>

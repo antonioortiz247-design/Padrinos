@@ -3,16 +3,16 @@
 @tailwind utilities;
 
 :root {
-  --bg: #0f0f0f;
-  --primary: #1b2433;
-  --accent: #c9a14a;
+  --bg: #000000;
+  --primary: rgb(255 255 255 / 0.7);
+  --accent: #ffffff;
   --text: #ffffff;
-  --subtext: #bfbfbf;
-  --bg-rgb: 15 15 15;
-  --primary-rgb: 27 36 51;
-  --accent-rgb: 201 161 74;
+  --subtext: rgb(255 255 255 / 0.72);
+  --bg-rgb: 0 0 0;
+  --primary-rgb: 255 255 255;
+  --accent-rgb: 255 255 255;
   --text-rgb: 255 255 255;
-  --subtext-rgb: 191 191 191;
+  --subtext-rgb: 255 255 255;
   --brand-primary: var(--accent);
   --brand-secondary: var(--primary);
   --bg-main: var(--bg);
@@ -22,8 +22,8 @@
   body {
     @apply min-h-screen bg-[var(--bg)] text-[var(--text)] antialiased;
     background-image: 
-      radial-gradient(at 0% 0%, rgb(var(--primary-rgb) / 0.35) 0px, transparent 55%),
-      radial-gradient(at 100% 0%, rgb(var(--accent-rgb) / 0.25) 0px, transparent 55%);
+      radial-gradient(at 0% 0%, rgb(var(--primary-rgb) / 0.18) 0px, transparent 55%),
+      radial-gradient(at 100% 0%, rgb(var(--accent-rgb) / 0.12) 0px, transparent 55%);
   }
 }
 
