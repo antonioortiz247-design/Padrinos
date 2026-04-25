@@ -57,7 +57,7 @@ export function Header({ title, subtitle, isOpen, eventHref }: HeaderProps) {
           <Link href="/" className="transition-transform active:scale-95 hover:scale-105">
             {!logoError ? (
               <img
-                src="/logopadrinos.webp"
+                src="/logopadrinos.png"
                 alt="Logo Los Padrinos – Mar y Tierra"
                 className="h-12 w-12 rounded-2xl border border-white/10 object-cover shadow-sm"
                 onError={() => setLogoError(true)}

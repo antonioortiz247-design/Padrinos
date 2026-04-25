@@ -34,7 +34,7 @@
 
   .section-title {
     @apply text-xl font-black tracking-tight text-[var(--text)] uppercase;
-    font-family: var(--font-inter);
+    font-family: inherit;
   }
 
   .primary-btn {

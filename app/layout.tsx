@@ -1,9 +1,9 @@
 import type { Metadata, Viewport } from 'next';
-import { Inter } from 'next/font/google';
+import localFont from 'next/font/local';
 import './globals.css';
 import { FloatingCart } from '@/components/FloatingCart';
 
-const inter = Inter({ subsets: ['latin'] });
+const blackrush = localFont({ src: '../Blackrush.ttf', display: 'swap' });
 
 export const metadata: Metadata = {
   title: 'Los Padrinos – Mar y Tierra - Tacos de mar y tierra al siguiente nivel',
@@ -34,7 +34,7 @@ export const viewport: Viewport = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="es" className="h-full">
-      <body className={`${inter.className} h-full bg-[var(--bg)] text-[var(--text)] antialiased`}>
+      <body className={`${blackrush.className} h-full bg-[var(--bg)] text-[var(--text)] antialiased`}>
         {children}
         <FloatingCart />
       </body>

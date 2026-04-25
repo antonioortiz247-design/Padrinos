@@ -61,7 +61,7 @@ export default function HomePage() {
           <div className="relative mx-auto w-full max-w-[400px] lg:max-w-none">
             <div className="animate-float relative z-10 aspect-square overflow-hidden rounded-[3rem] border-8 border-white shadow-soft-xl">
               <Image 
-                src="/logopadrinos.webp" 
+                src="/logopadrinos.png" 
                 alt="Logo Los Padrinos – Mar y Tierra" 
                 fill 
                 className="object-cover"
