@@ -209,16 +209,19 @@ export async function getOwnerDashboardMetrics(businessIdOrSlug: string) {
     }
   }
 
-  const totalSales = (salesResult.data ?? []).reduce((sum, row) => sum + Number(row.total || 0), 0);
+  const salesRows = (salesResult.data ?? []) as Array<{ total: number | string | null }>;
+  const totalSales = salesRows.reduce((sum: number, row) => sum + Number(row.total ?? 0), 0);
   const ordersCount = ordersResult.count ?? 0;
   const avgTicket = ordersCount > 0 ? Number((totalSales / ordersCount).toFixed(2)) : 0;
 
-  const frequencies = (topResult.data ?? []).reduce<Record<string, number>>((acc, row) => {
-    acc[row.product_name] = (acc[row.product_name] ?? 0) + 1;
+  const topRows = (topResult.data ?? []) as Array<{ product_name: string | null }>;
+  const frequencies = topRows.reduce<Record<string, number>>((acc, row) => {
+    const name = row.product_name ?? 'Sin nombre';
+    acc[name] = (acc[name] ?? 0) + 1;
     return acc;
   }, {});
 
-  const topProducts = Object.entries(frequencies)
+  const topProducts = (Object.entries(frequencies) as Array<[string, number]>)
     .sort((a, b) => b[1] - a[1])
     .slice(0, 3)
     .map(([name]) => name)

@@ -1,6 +1,6 @@
 'use client';
 
-import { useMemo, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { calculateTacoPrice } from '@/lib/pricing';
 import { Product, TacoConfig } from '@/lib/types';
 
@@ -24,9 +24,22 @@ export function CustomizationModal({
 
   const unitPrice = useMemo(() => calculateTacoPrice({ tortilla, extras, notes }, product.price), [extras, notes, product.price, tortilla]);
 
+  useEffect(() => {
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') onClose();
+    };
+    window.addEventListener('keydown', onKeyDown);
+    return () => window.removeEventListener('keydown', onKeyDown);
+  }, [onClose]);
+
   return (
-    <div className="fixed inset-0 z-30 grid place-items-end bg-[rgb(var(--bg-rgb)/0.7)] p-2 sm:place-items-center">
-      <div className="w-full max-w-lg rounded-2xl border border-white/10 bg-[rgb(var(--bg-rgb)/0.85)] p-4 shadow-2xl">
+    <div
+      className="fixed inset-0 z-30 grid place-items-end bg-[rgb(var(--bg-rgb)/0.7)] p-2 sm:place-items-center"
+      onMouseDown={(e) => {
+        if (e.target === e.currentTarget) onClose();
+      }}
+    >
+      <div className="w-full max-w-lg max-h-[calc(100vh-1rem)] overflow-y-auto rounded-2xl border border-white/10 bg-[rgb(var(--bg-rgb)/0.85)] p-4 shadow-2xl">
         <h2 className="text-lg font-bold tracking-tight text-[var(--text)]">{product.name}</h2>
         <p className="mt-1 text-sm text-[var(--subtext)]">Personaliza tu pedido y agrega notas si lo necesitas.</p>
 

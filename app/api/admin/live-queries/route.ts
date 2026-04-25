@@ -36,7 +36,8 @@ export async function GET(request: Request) {
     return NextResponse.json({ ok: false, error: salesResult.error ?? ordersResult.error }, { status: 400 });
   }
 
-  const salesToday = (salesResult.data ?? []).reduce((sum, row) => sum + Number(row.total || 0), 0);
+  const salesRows = (salesResult.data ?? []) as Array<{ total: number | string | null }>;
+  const salesToday = salesRows.reduce((sum: number, row) => sum + Number(row.total ?? 0), 0);
   const ordersToday = ordersResult.count ?? 0;
   const avgTicket = ordersToday > 0 ? Number((salesToday / ordersToday).toFixed(2)) : 0;
 

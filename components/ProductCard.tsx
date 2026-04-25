@@ -19,6 +19,8 @@ export function ProductCard({
   onCustomize: (product: Product) => void;
   onAdd: (product: Product) => void;
 }) {
+  const canCustomize = product.category === 'tacos' || product.customizable;
+
   return (
     <article className="surface-card group flex flex-col overflow-hidden p-0 sm:flex-row sm:items-center sm:gap-6 sm:pr-6">
       <div className="relative aspect-[4/3] w-full shrink-0 overflow-hidden sm:aspect-square sm:w-36 sm:rounded-l-none sm:rounded-r-3xl">
@@ -64,7 +66,7 @@ export function ProductCard({
         </div>
 
         <div className="mt-6 flex items-center gap-3 sm:mt-4">
-          {product.customizable ? (
+          {canCustomize ? (
             <button 
               onClick={() => onCustomize(product)} 
               className="secondary-btn w-full py-2 text-xs sm:w-auto"

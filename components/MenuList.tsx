@@ -18,6 +18,11 @@ export function MenuList({ products }: { products: Product[] }) {
   const [selected, setSelected] = useState<Product | null>(null);
   const addItem = useCartStore((state) => state.addItem);
 
+  const createCartItemId = () => {
+    const cryptoAny = globalThis.crypto as Crypto | undefined;
+    return cryptoAny?.randomUUID ? cryptoAny.randomUUID() : `${Date.now()}-${Math.random().toString(16).slice(2)}`;
+  };
+
   const byCategory = Object.keys(sectionTitles).map((key) => ({
     key: key as Product['category'],
     label: sectionTitles[key as Product['category']],
@@ -41,7 +46,7 @@ export function MenuList({ products }: { products: Product[] }) {
                   onCustomize={setSelected}
                   onAdd={(item) =>
                     addItem({
-                      id: crypto.randomUUID(),
+                      id: createCartItemId(),
                       productId: item.id,
                       productName: item.name,
                       quantity: 1,
@@ -62,7 +67,7 @@ export function MenuList({ products }: { products: Product[] }) {
           onClose={() => setSelected(null)}
           onConfirm={(config, unitPrice) => {
             addItem({
-              id: crypto.randomUUID(),
+              id: createCartItemId(),
               productId: selected.id,
               productName: selected.name,
               quantity: 1,
