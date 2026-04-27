@@ -19,11 +19,19 @@
 }
 
 @layer base {
+  html {
+    background-color: var(--bg);
+  }
+
   body {
-    @apply min-h-screen bg-[var(--bg)] text-[var(--text)] antialiased;
-    background-image: 
+    @apply min-h-screen text-[var(--text)] antialiased;
+    background-color: var(--bg);
+    background-image:
       radial-gradient(at 0% 0%, rgb(var(--primary-rgb) / 0.18) 0px, transparent 55%),
       radial-gradient(at 100% 0%, rgb(var(--accent-rgb) / 0.12) 0px, transparent 55%);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: 100% 100%;
   }
 }
 

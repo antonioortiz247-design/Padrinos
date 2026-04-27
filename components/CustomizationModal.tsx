@@ -15,8 +15,9 @@ export function CustomizationModal({
   onClose: () => void;
   onConfirm: (config: TacoConfig, unitPrice: number) => void;
 }) {
-  const [tortilla, setTortilla] = useState<TacoConfig['tortilla']>('maiz');
-  const [extras, setExtras] = useState<TacoConfig['extras']>([]);
+  const [tortilla] = useState<TacoConfig['tortilla']>('maiz');
+  const [withQueso, setWithQueso] = useState(false);
+  const extras: TacoConfig['extras'] = withQueso ? ['queso'] : [];
   const [protein, setProtein] = useState(proteinOptions[0]);
   const [notes, setNotes] = useState('');
   const canSelectProtein = product.category === 'especialidades' && (product.name === 'Burrito' || product.name === 'Gringas');
@@ -45,39 +46,23 @@ export function CustomizationModal({
 
         <div className="mt-4 space-y-4 text-sm">
           {canSelectTacoOptions ? (
-            <>
-              <div>
-                <label className="font-semibold text-[var(--text)]">Tortilla</label>
-                <div className="mt-2 flex gap-2">
-                  {(['maiz', 'harina'] as const).map((item) => (
-                    <button
-                      key={item}
-                      onClick={() => setTortilla(item)}
-                      className={`secondary-btn px-3 py-1.5 capitalize ${tortilla === item ? 'border-[var(--accent)] bg-[rgb(var(--accent-rgb)/0.18)] text-[var(--accent)]' : ''}`}
-                    >
-                      {item}
-                    </button>
-                  ))}
-                </div>
+            <div>
+              <label className="font-semibold text-[var(--text)]">Queso</label>
+              <div className="mt-2 flex gap-2">
+                {([
+                  { key: false, label: 'Sin queso' },
+                  { key: true, label: 'Con queso' }
+                ] as const).map((opt) => (
+                  <button
+                    key={String(opt.key)}
+                    onClick={() => setWithQueso(opt.key)}
+                    className={`secondary-btn px-3 py-1.5 ${withQueso === opt.key ? 'border-[var(--accent)] bg-[rgb(var(--accent-rgb)/0.18)] text-[var(--accent)]' : ''}`}
+                  >
+                    {opt.label}
+                  </button>
+                ))}
               </div>
-
-              <div>
-                <label className="font-semibold text-[var(--text)]">Extras</label>
-                <div className="mt-2 flex gap-2">
-                  {(['queso', 'papas'] as const).map((extra) => (
-                    <button
-                      key={extra}
-                      onClick={() =>
-                        setExtras((prev) => (prev.includes(extra) ? prev.filter((item) => item !== extra) : [...prev, extra]))
-                      }
-                      className={`secondary-btn px-3 py-1.5 capitalize ${extras.includes(extra) ? 'border-[var(--accent)] bg-[rgb(var(--accent-rgb)/0.18)] text-[var(--accent)]' : ''}`}
-                    >
-                      {extra}
-                    </button>
-                  ))}
-                </div>
-              </div>
-            </>
+            </div>
           ) : null}
 
           {canSelectProtein ? (
