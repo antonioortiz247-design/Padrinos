@@ -3,9 +3,9 @@ import { TacoConfig } from './types';
 export const BASE_TACO_PRICE = 32;
 export const QUESO_EXTRA = 8;
 
-export function calculateTacoPrice(config: TacoConfig, basePrice = BASE_TACO_PRICE): number {
-  const hasQueso = config.extras.includes('queso');
-  if (hasQueso) return basePrice + QUESO_EXTRA;
+export function calculateTacoPrice(_config: TacoConfig, basePrice = BASE_TACO_PRICE): number {
+  // El queso seleccionado en el taco no tiene costo extra.
+  // Para "queso extra" existe un producto aparte en el menú.
   return basePrice;
 }
 
